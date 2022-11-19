@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ShoppingCart[
+<!ELEMENT shoppingCarts (ShoppingCart?)>
+<!ELEMENT ShoppingCart (ShoppingCart.items?, ShoppingCart.totalCost, ShoppingCart.ownedBy)>
+<!ELEMENT ShoppingCart.items (ShoppingCart.items.LegoSet?, ShoppingCart.items.LegoBrick?)>
+<!ELEMENT ShoppingCart.items.LegoSet (ShoppingCart.items.Product.price,
+                                      ShoppingCart.items.Product.productID,
+                                      ShoppingCart.items.Product.stock,
+                                      ShoppingCart.items.LegoSet.numBricks,
+                                      ShoppingCart.items.LegoSet.pricePerBrick)>
+<!ELEMENT ShoppingCart.items.Product.price (#PCDATA)>
+<!ELEMENT ShoppingCart.items.Product.productID (#PCDATA)>
+<!ELEMENT ShoppingCart.items.Product.stock (#PCDATA)>
+<!ELEMENT ShoppingCart.items.LegoSet.numBricks (#PCDATA)>
+<!ELEMENT ShoppingCart.items.LegoSet.pricePerBrick (#PCDATA)>
+
+<!ELEMENT ShoppingCart.items.LegoBrick (ShoppingCart.items.Product.price,
+                                        ShoppingCart.items.Product.productID,
+                                        ShoppingCart.items.Product.stock,
+                                        ShoppingCart.items.LegoBrick.brickType,
+                                        ShoppingCart.items.LegoBrick.color,
+                                        ShoppingCart.items.LegoBrick.brickSize)>
+<!ELEMENT ShoppingCart.items.Product.price (#PCDATA)>
+<!ELEMENT ShoppingCart.items.Product.productID (#PCDATA)>
+<!ELEMENT ShoppingCart.items.Product.stock (#PCDATA)>
+<!ELEMENT ShoppingCart.items.LegoBrick.brickType (#PCDATA)>
+<!ELEMENT ShoppingCart.items.LegoBrick.color (#PCDATA)>
+<!ELEMENT ShoppingCart.items.LegoBrick.brickSize (#PCDATA)>
+<!ELEMENT ShoppingCart.totalCost (#PCDATA)>
+]>
+<shoppingCarts>
+    <ShoppingCart>
+        <ShoppingCart.items>
+            <LegoSet>
+                <Product.price>100.00</Product.price>
+                <Product.productID>3452</Product.productID>
+                <Product.stock>30</Product.stock>
+                <LegoSet.numBricks>305</LegoSet.numBricks>
+                <LegoSet.pricePerBrick>0.30</LegoSet.pricePerBrick>
+            </LegoSet>
+        </ShoppingCart.items>
+
+        <ShoppingCart.items>
+            <LegoSet>
+                <Product.price>1000.50</Product.price>
+                <Product.productID>4525</Product.productID>
+                <Product.stock>10</Product.stock>
+                <LegoSet.numBricks>5080</LegoSet.numBricks>
+                <LegoSet.pricePerBrick>0.50</LegoSet.pricePerBrick>
+            </LegoSet>
+        </ShoppingCart.items>
+
+        <ShoppingCart.totalCost>1100.50</ShoppingCart.totalCost>
+        <ShoppingCart.ownedBy>
+            <Customer idref="1234"/>
+        </ShoppingCart.ownedBy>
+    </ShoppingCart>
+
+    <ShoppingCart>
+        <ShoppingCart.items>
+            <Product>
+                <Product.price>250.00</Product.price>
+                <Product.productID>56</Product.productID>
+                <Product.stock>2</Product.stock>
+            </Product>
+        </ShoppingCart.items>
+
+        <ShoppingCart.items>
+            <Product>
+                <Product.price>890000.00</Product.price>
+                <Product.productID>4525</Product.productID>
+                <Product.stock>1</Product.stock>
+            </Product>
+        </ShoppingCart.items>
+        
+        <ShoppingCart.totalCost>890250.00</ShoppingCart.totalCost>
+        <ShoppingCart.ownedBy>
+            <Customer idref="4242"/>
+        </ShoppingCart.ownedBy>
+    </ShoppingCart>
+</shoppingCarts>

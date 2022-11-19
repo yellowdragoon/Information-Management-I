@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Customer[
+<!ELEMENT customers (Customer?)>
+<!ELEMENT Customer (Customer.username, Customer.vipTier, Customer.belongsTo)>
+<!ATTLIST Customer id CDATA #REQUIRED>
+<!ELEMENT Customer.username (#PCDATA)>
+<!ELEMENT Customer.vipTier (#PCDATA)>
+<!ELEMENT Customer.belongsTo (#PCDATA)>
+]>
+<customers>
+    <Customer id = "1234">
+        <Customer.username>AlexanderTheGreat</Customer.username>
+        <Customer.vipTier>3</Customer.vipTier>
+        <Customer.belongsTo>UserDatabase</Customer.belongsTo>
+    </Customer>
+
+    <Customer id = "4242">
+        <Customer.username>JuliusCaesarSalad123</Customer.username>
+        <Customer.vipTier>1</Customer.vipTier>
+        <Customer.belongsTo>UserDatabase</Customer.belongsTo>
+    </Customer>
+
+    <Customer id = "8765">
+        <Customer.username>BaBaBlackSheep5</Customer.username>
+        <Customer.vipTier>2</Customer.vipTier>
+        <Customer.belongsTo>UserDatabase</Customer.belongsTo>
+    </Customer>
+</customers>
