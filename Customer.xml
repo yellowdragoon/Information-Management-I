@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE Customer[
-<!ELEMENT customers (Customer?)>
+<!DOCTYPE customers[
+<!ELEMENT customers (Customer*)>
 <!ELEMENT Customer (Customer.username, Customer.vipTier, Customer.belongsTo)>
 <!ATTLIST Customer id CDATA #REQUIRED>
 <!ELEMENT Customer.username (#PCDATA)>
