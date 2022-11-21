@@ -1,28 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE customers[
 <!ELEMENT customers (Customer*)>
-<!ELEMENT Customer (Customer.username, Customer.vipTier, Customer.belongsTo)>
-<!ATTLIST Customer id CDATA #REQUIRED>
+<!ELEMENT Customer (Customer.username, Customer.vipTier, Customer.belonged_To, Customer.asked*)>
+<!ATTLIST Customer customerID CDATA #REQUIRED>
 <!ELEMENT Customer.username (#PCDATA)>
 <!ELEMENT Customer.vipTier (#PCDATA)>
-<!ELEMENT Customer.belongsTo (#PCDATA)>
+<!ELEMENT Customer.belonged_To (UserDatabase+)>
+<!ELEMENT UserDatabase (#PCDATA)>
+<!ATTLIST UserDatabase databaseIDref CDATA #REQUIRED>
+<!ELEMENT Customer.asked (Query*)>
+<!ELEMENT Query (#PCDATA)>
+<!ATTLIST Query queryIDref CDATA #REQUIRED>
 ]>
+
 <customers>
-    <Customer id = "1234">
+    <Customer customerID = "1234">
         <Customer.username>AlexanderTheGreat</Customer.username>
         <Customer.vipTier>3</Customer.vipTier>
-        <Customer.belongsTo>UserDatabase</Customer.belongsTo>
+        <Customer.belonged_To><UserDatabase databaseIDref="U"/></Customer.belonged_To>
+        <Customer.asked><Query queryIDref="1"/></Customer.asked>
     </Customer>
 
-    <Customer id = "4242">
+    <Customer customerID = "4242">
         <Customer.username>JuliusCaesarSalad123</Customer.username>
         <Customer.vipTier>1</Customer.vipTier>
-        <Customer.belongsTo>UserDatabase</Customer.belongsTo>
+        <Customer.belonged_To><UserDatabase databaseIDref="U"/></Customer.belonged_To>
     </Customer>
 
-    <Customer id = "8765">
+    <Customer customerID = "8765">
         <Customer.username>BaBaBlackSheep5</Customer.username>
         <Customer.vipTier>2</Customer.vipTier>
-        <Customer.belongsTo>UserDatabase</Customer.belongsTo>
+        <Customer.belonged_To><UserDatabase databaseIDref="U"/></Customer.belonged_To>
+        <Customer.asked><Query queryIDref="2"/></Customer.asked>
     </Customer>
 </customers>

@@ -15,19 +15,15 @@
 <shoppingCarts>
     <ShoppingCart>
         <ShoppingCart.items>
-            <LegoSet idref="6969"/>
+            <LegoSet idref="0009"/>
         </ShoppingCart.items>
 
         <ShoppingCart.items>
-            <LegoSet idref="XXXX"/>
+            <LegoSet idref="0009"/>
         </ShoppingCart.items>
 
         <ShoppingCart.items>
-            <LegoBrick idref="XXXX"/>
-        </ShoppingCart.items>
-
-        <ShoppingCart.items>
-            <LegoBrick idref="XXXX"/>
+            <LegoBrick idref="0456"/>
         </ShoppingCart.items>
 
         <ShoppingCart.totalCost>1100.50</ShoppingCart.totalCost>
@@ -38,19 +34,7 @@
 
     <ShoppingCart>
         <ShoppingCart.items>
-            <LegoSet idref="XXXX"/>
-        </ShoppingCart.items>
-
-        <ShoppingCart.items>
-            <LegoSet idref="XXXX"/>
-        </ShoppingCart.items>
-
-        <ShoppingCart.items>
-            <LegoBrick idref="XXXX"/>
-        </ShoppingCart.items>
-
-        <ShoppingCart.items>
-            <LegoBrick idref="XXXX"/>
+            <LegoSet idref="0456"/>
         </ShoppingCart.items>
         
         <ShoppingCart.totalCost>890250.00</ShoppingCart.totalCost>
