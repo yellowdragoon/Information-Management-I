@@ -1,3 +1,25 @@
+<!--
+Henry Li
+XML Document + DLD for the Customer Class from the UML Class Diagram.
+The purpose of this document is to transform the important Customer Class into the XML format, modelling its relations to the other classes,
+such as the shopping cart, queries and userDatabase. We also create a few instances of the Customer to give instructive examples.
+-->
+
+<!--
+DTD for Customer.xml.
+All of our Customer instances are contained within our customers root node.
+Customer has a cardinality of * since we can have no Customers at any moment in time up to many Customers.
+Each Customer must have exactly 1 username, vipTier, and can have 0 to many Queries asked.
+We use belonged_To to identify the database(s) that each Customer belongs in. Currently all belong to "U"base, but supports more bases.
+This is why UserDatabase is one-to-many (+). Each database must have an IDref to uniquely identify that database as well.
+Each Customer must also have a unique customerID attribute, to uniquely identify that user. This is necessary for linking
+between different .xml documents, by referencing this customerID field.
+Each Customer.asked element has exactly 1 query associated with it. If we wanted to add more queries we would add more
+Customer.asked elements. Alternatively, we could have instead set the cardinality of Customer.asked to exactly one, 
+and Query to * (0-more). Both should work, matter of preference/design decisions.
+Each query must have a unique queryIDref attribute to uniquely identify that query, so it can be linked between documents.
+-->
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE customers[
 <!ELEMENT customers (Customer*)>
@@ -8,11 +30,15 @@
 <!ELEMENT Customer.belonged_To (UserDatabase+)>
 <!ELEMENT UserDatabase (#PCDATA)>
 <!ATTLIST UserDatabase databaseIDref CDATA #REQUIRED>
-<!ELEMENT Customer.asked (Query*)>
+<!ELEMENT Customer.asked (Query)>
 <!ELEMENT Query (#PCDATA)>
 <!ATTLIST Query queryIDref CDATA #REQUIRED>
 ]>
 
+
+<!--
+Instantiations of a couple of test Customers. They all belong to the the "U"base.
+-->
 <customers>
     <Customer customerID = "1234">
         <Customer.username>AlexanderTheGreat</Customer.username>

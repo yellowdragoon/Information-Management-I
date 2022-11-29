@@ -1,8 +1,31 @@
+<!--
+Henry Li
+XML Document + DLD for the ShoppingCart Class from the UML Class Diagram.
+The purpose of this document is to transform the ShoppingCart Class into the XML format, modelling its association
+to the Customer Class, as well as the objects/items contained within it, namely the items list.
+We also create a few ShoppingCarts to give examples.
+-->
+
+<!--
+DTD for ShoppingCart.xml.
+All of our ShoppingCart instances are contained within our shoppingCarts root node.
+ShoppingCart has a cardinality of * since we can have no ShoppingCarts at any moment in time up to many ShoppingCarts,
+i.e. if there are no Customers on our System, then there will be no Carts.
+Each ShoppingCart must have exactly 1 totalCost, and exactly one ownedBy since only 1 Customer can have access to a Cart.
+A Cart can have 0 or more ShoppingCart.items (*), since we are translating from a List attribute from our UML Diagram.
+Each item is either a LegoSet or a LegoBrick, and the reason for the zero or one cardinality (?) is because our representation
+models each item in the Cart as a seperate ShoppingCart.items entity, with each entity representing one and only one item.
+LegoSets and LegoBricks must have an idref attribute to uniquely identify that Product (its superclass). 
+We use ownedBy to identify the unique Customer who owns this Cart. It contains one and only one Customer element which 
+must have an idref attribute, identifying that Customer. This creates the robust link between this .xml doc and the Customer.xml doc.
+Allows for smooth cross-document XQueries.
+-->
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE shoppingCarts[
 <!ELEMENT shoppingCarts (ShoppingCart*)>
 <!ELEMENT ShoppingCart (ShoppingCart.items*, ShoppingCart.totalCost, ShoppingCart.ownedBy)>
-<!ELEMENT ShoppingCart.items (LegoSet*, LegoBrick*)>
+<!ELEMENT ShoppingCart.items (LegoSet?, LegoBrick?)>
 <!ELEMENT LegoSet (#PCDATA)>
 <!ATTLIST LegoSet idref CDATA #REQUIRED>
 <!ELEMENT LegoBrick (#PCDATA)>
@@ -12,6 +35,11 @@
 <!ELEMENT Customer (#PCDATA)>
 <!ATTLIST Customer idref CDATA #REQUIRED>
 ]>
+
+<!--
+Instantiations of a few ShoppingCarts. Note how each Cart is linked to its Customer via the
+unique "idref" attribute possessed by the Customer object.
+-->
 <shoppingCarts>
     <ShoppingCart>
         <ShoppingCart.items>
