@@ -1,8 +1,6 @@
-for $x in doc("ShoppingCart.xml")/shoppingCarts/ShoppingCart,
-    $y in doc("Customer.xml")/customers
-where $x/ShoppingCart.items/*/@idref = "0456"
-where $y/[@idref = $x/ShoppingCart.ownedBy[@idref]]
+for $x in doc("ShoppingCart.xml")/shoppingCarts, $y in doc("Customer.xml")/customers
+where $x/ShoppingCart/ShoppingCart.items/*[@idref = "0009"] and $y/Customer[@customerID = $x/ShoppingCart/ShoppingCart.ownedBy/Customer[@idref]]
 return
 <SpecialCustomers>
- {$y/Customer/Customer.username}
+ {$x/ShoppingCart.ownedBy/Customer}
 </SpecialCustomers>
