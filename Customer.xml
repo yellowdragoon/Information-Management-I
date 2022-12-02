@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Henry Li
 XML Document + DLD for the Customer Class from the UML Class Diagram.
@@ -20,7 +21,7 @@ and Query to * (0-more). Both should work, matter of preference/design decisions
 Each query must have a unique queryIDref attribute to uniquely identify that query, so it can be linked between documents.
 -->
 
-<?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE customers[
 <!ELEMENT customers (Customer*)>
 <!ELEMENT Customer (Customer.username, Customer.vipTier, Customer.belonged_To, Customer.asked*)>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Henry Li
 XML Document + DLD for the ShoppingCart Class from the UML Class Diagram.
@@ -21,7 +22,7 @@ must have an idref attribute, identifying that Customer. This creates the robust
 Allows for smooth cross-document XQueries.
 -->
 
-<?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE shoppingCarts[
 <!ELEMENT shoppingCarts (ShoppingCart*)>
 <!ELEMENT ShoppingCart (ShoppingCart.items*, ShoppingCart.totalCost, ShoppingCart.ownedBy)>
